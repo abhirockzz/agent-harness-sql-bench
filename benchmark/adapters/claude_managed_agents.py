@@ -101,7 +101,7 @@ def run(question, human):
     session = client.beta.sessions.create(
         agent=AGENT_ID,  # latest version
         environment_id=ENV_ID,
-        title="harness-bench-sql",
+        title="agent-harness-sql-bench",
         budget={"type": "limit", "max_list_cost": {"amount": BUDGET_CENTS, "currency": "USD"}},
     )
 

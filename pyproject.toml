@@ -1,5 +1,5 @@
 [project]
-name = "harness-bench-sql"
+name = "agent-harness-sql-bench"
 version = "0.1.0"
 description = "Compare agent harnesses on a SQL analytics agent that asks before it guesses (HiL-Bench SQL tasks)"
 license = "MIT"
