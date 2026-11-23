@@ -1,0 +1,18 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Your own benchmark runs (the published run is in published-results/)
+results/
+results-*/
+# A results page built from published-results/ with benchmark/viewer.py
+published-results/index.html
+# Task databases and business notes, copied out of HiL-Bench's images by benchmark/prepare.py (~0.6 GB)
+data/
+# Written by ant apply: IDs of the Claude Managed Agents agent in your own workspace
+claude-lock*.json
+# Agent file written by agents/claude-managed-agents/apply.py (holds your MCP_PUBLIC_URL)
+agents/claude-managed-agents/build/
+# Working notes, kept out of the repo
+PLAN.md

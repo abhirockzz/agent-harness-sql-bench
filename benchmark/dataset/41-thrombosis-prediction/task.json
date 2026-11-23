@@ -1,0 +1,5 @@
+{
+  "hil_bench_task": 41,
+  "database": "thrombosis_prediction",
+  "docker_image": "public.ecr.aws/b2z8n5q1/hil-bench@sha256:63414557b0f0471b3c0086ca7b34ce3251abb06ec9ca174d89110b2254ae2acb"
+}

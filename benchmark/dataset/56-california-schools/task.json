@@ -1,0 +1,5 @@
+{
+  "hil_bench_task": 56,
+  "database": "california_schools",
+  "docker_image": "public.ecr.aws/b2z8n5q1/hil-bench@sha256:1245d0f257c5bb93e184db5a9d93787d984dc2496c9fe97935740a5bd0b37c40"
+}

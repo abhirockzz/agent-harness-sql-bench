@@ -1,0 +1,60 @@
+# Shared settings for every agent and the benchmark. Secrets and URLs go in .env.
+
+# What every agent must use, so the comparison is fair.
+[agent]
+# provider/model as TrueForge names them; Managed Agents runs Claude only.
+provider = "anthropic"
+model = "claude-haiku-5-5"
+reasoning_effort = "medium"
+system_prompt = "shared/system.md"
+
+# One local MCP server with the HiL-Bench SQL tools and business-notes search (mcp_server/server.py).
+# If MCP_PUBLIC_URL is set in .env, every harness uses that address instead.
+[agent.mcp_servers]
+sql-tools = "http://localhost:8800/mcp"
+
+[mcp]
+port = 8800
+# Most rows execute_sql returns, the same cap as HiL-Bench's.
+max_rows = 200
+# HiL-Bench allows 1200s; none of the 5 ground-truth queries needs more than a few seconds.
+query_timeout_s = 120
+
+# The simulated business user, ported from HiL-Bench (benchmark/human.py).
+[human]
+# How it decides whether a question is about one of the task's gaps:
+# "realistic": answers any question about one specific gap, however it is worded.
+# "strict": HiL-Bench's original prompt, which also turns down questions that open
+#   with context, state a guess or only repeat a term.
+matcher = "realistic"
+# The model that matches each question to a gap. Same provider as the agent, so the
+# benchmark needs one API key. Haiku 5.5 takes no temperature; effort is its only setting.
+model = "claude-haiku-5-5"
+effort = "medium"
+# Like HiL-Bench, it answers at most 2 questions per gap; later ones get "irrelevant question".
+max_answers_per_blocker = 2
+
+[benchmark]
+# Trials per task (one trial = one pass through all 5 tasks); run.py --trials overrides it.
+trials = 3
+# A run that takes longer than this is stopped and retried.
+task_timeout_s = 900
+# Attempts per run (after a timeout, crash or empty answer) before it's recorded as failed.
+max_attempts = 3
+
+# $ per 1M tokens, list price November 2026, one table per model. Each result row
+# records its model, so it is priced at that model's rates.
+
+# Claude: cache writes cost 1.25x input (5-minute cache). A single model call with a
+# prompt over 100k tokens is billed at $0.50 / $2.50; aggregate.py warns if a run had one.
+[rates.claude-haiku-5-5]
+in = 0.10
+out = 0.50
+cache_read = 0.01
+cache_write = 0.125
+long_context_above = 100_000
+
+# Claude Managed Agents also bills session running time (time spent running, not idle),
+# $ per session-hour, on top of tokens. Applied to rows that report runtime_s.
+[rates.session_runtime]
+per_hour = 0.08

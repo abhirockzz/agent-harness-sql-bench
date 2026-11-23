@@ -1,0 +1,5 @@
+{
+  "hil_bench_task": 18,
+  "database": "financial",
+  "docker_image": "public.ecr.aws/b2z8n5q1/hil-bench@sha256:2a5e6e4c589d021a6d92477f61f0028b0a9b73a014dcb9f5dbd9e16980b40ad9"
+}

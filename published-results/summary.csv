@@ -1,0 +1,16 @@
+agent,task,trials,passes
+claude_managed_agents,18-financial,10,10
+claude_managed_agents,41-thrombosis-prediction,10,6
+claude_managed_agents,56-california-schools,10,10
+claude_managed_agents,83-codebase-community,10,10
+claude_managed_agents,97-formula-1,10,3
+deepagents,18-financial,10,10
+deepagents,41-thrombosis-prediction,10,6
+deepagents,56-california-schools,10,10
+deepagents,83-codebase-community,10,10
+deepagents,97-formula-1,10,3
+trueforge,18-financial,10,10
+trueforge,41-thrombosis-prediction,10,6
+trueforge,56-california-schools,10,10
+trueforge,83-codebase-community,10,10
+trueforge,97-formula-1,10,3

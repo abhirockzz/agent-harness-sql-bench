@@ -1,0 +1,10 @@
+# Every Managed Agents session runs in an environment (a container template). This agent
+# runs no code, but a session still needs one. Networking is limited to the agent's MCP
+# servers (allow_mcp_servers takes their hosts from the agent, so no URL is written here);
+# an API request that leaves networking out gets unrestricted egress.
+name: sql-analyst-env
+config:
+  type: cloud
+  networking:
+    type: limited
+    allow_mcp_servers: true

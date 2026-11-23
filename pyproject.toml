@@ -1,0 +1,30 @@
+[project]
+name = "harness-bench-sql"
+version = "0.1.0"
+description = "Compare agent harnesses on a SQL analytics agent that asks before it guesses (HiL-Bench SQL tasks)"
+license = "MIT"
+requires-python = ">=3.12"
+# One environment for every harness SDK, the MCP server and the benchmark.
+dependencies = [
+    # Match the SDK to the TrueForge server's minor version (0.185 introduced paused turns).
+    "trueforge-sdk>=0.185,<0.186",
+    # MCP server (HiL-Bench's servers use FastMCP too).
+    "fastmcp>=4.2,<5",
+    # Business-notes search: same embedding model as HiL-Bench (all-MiniLM-L6-v2), run with ONNX, no torch.
+    "chromadb>=1.5,<2",
+    # Grader and SQL server compare and print results with pandas, as HiL-Bench does.
+    "pandas",
+    # The TrueForge adapter reads the server's version from its health check.
+    "httpx",
+    "python-dotenv",
+    "deepagents>=0.7.41,<0.8",
+    "langchain-anthropic>=1.7.12,<2",
+    "langchain[mcp]>=1.5",
+    # Claude Managed Agents adapter, and the simulated user (benchmark/human.py).
+    "anthropic>=2.12,<3",
+    # agents/claude-managed-agents/apply.py reads and writes the agent file's YAML.
+    "pyyaml",
+]
+
+[tool.uv]
+package = false

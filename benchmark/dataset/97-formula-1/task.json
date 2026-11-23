@@ -1,0 +1,5 @@
+{
+  "hil_bench_task": 97,
+  "database": "formula_1",
+  "docker_image": "public.ecr.aws/b2z8n5q1/hil-bench@sha256:82910664cf77eccf0e77b4f22484d0e2e1200cb5eb45fb8c6b288855d5244fa7"
+}

@@ -1,0 +1,27 @@
+{
+  "_source": "TrueForge 0.185.1 built-in ask_user_question (trueforge-core dist/core/capabilities/builtins/AskUserQuestion.mjs), copied unchanged so every harness shows the agent the same tool",
+  "name": "ask_user_question",
+  "description": "Ask the user a question when clarification or a decision is needed before proceeding. Only ask when the answer meaningfully changes what you do next.\n\nRules:\n- Provide as many options as the question needs (0-5). When you include options, each must be a genuinely distinct, mutually exclusive outcome that meaningfully changes what you do next.\n- MUST NOT use <openui> for asking the user a question.\n- The user picks exactly one option — multi-select is not available.\n- Options must be mutually exclusive. If a valid choice is a combination of other options, include it as a separate option with the combined data.\n- Every option must commit the user to a specific outcome. Do not add an option whose purpose is to let the user describe, specify, or type their own answer. Do not add an option like \"Other\" or \"Something else\".\n- If you have enough context to confidently recommend one option, put it first with the exact suffix \" (Recommended)\" — no other wording. If no option clearly stands out, mark nothing.\n\nExample (distinct options):\nquestion: \"<your question>\"\noptions: [\"<Option A>\", \"<Option B>\", \"<Option C>\"]\n\nExample (combined options):\nquestion: \"<your question>\"\noptions: [\"<Option A>\", \"<Option B>\", \"<Option A and B — combined details>\"]\n\nExample (context clearly favors A):\nquestion: \"<your question>\"\noptions: [\"<Option A> (Recommended)\", \"<Option B>\", \"<Option C>\"]\n\nAvoid:\noptions: [\"<Option A>\", \"<Option B>\", \"Other\"]",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "question": {
+        "type": "string",
+        "description": "The question to ask the user."
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 0,
+        "maxItems": 5,
+        "description": "0-5 mutually exclusive choices, each mapping to a distinct outcome. A free-text input is always rendered alongside."
+      }
+    },
+    "required": [
+      "question",
+      "options"
+    ]
+  }
+}

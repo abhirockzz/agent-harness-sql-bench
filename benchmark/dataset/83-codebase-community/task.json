@@ -1,0 +1,5 @@
+{
+  "hil_bench_task": 83,
+  "database": "codebase_community",
+  "docker_image": "public.ecr.aws/b2z8n5q1/hil-bench@sha256:044852d998c0fdd6f760902d35ef0d1405c0bbabc824ab27a583ad3618bcb742"
+}
