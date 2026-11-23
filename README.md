@@ -334,6 +334,4 @@ The tasks come from HiL-Bench SQL by Scale AI, described in the paper [HiL-Bench
 - the simulated user's original prompt in `benchmark/human.py`
 - the SQL tools and the business-notes search in `mcp_server/server.py`, which are adapted from HiL-Bench's servers
 
-HiL-Bench's repository doesn't state a licence for its code or data, so this material isn't covered by this repo's MIT licence, and its rights stay with its authors. If you're one of them and would like it handled differently, please open an issue.
-
 The databases come from [BIRD](https://bird-bench.github.io), which HiL-Bench altered, and are under CC BY-SA 4.0. They aren't stored in this repo: `benchmark/prepare.py` copies them out of HiL-Bench's Docker images.
