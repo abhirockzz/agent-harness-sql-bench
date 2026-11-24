@@ -2,6 +2,8 @@
 
 This repo builds the same SQL analytics agent on three different agent harnesses and compares how each of them does. The three harnesses are [TrueForge](https://github.com/truefoundry/trueforge), an open-source harness that you run on your own machine, [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview), a Python library from LangChain, and [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview), where Anthropic runs the agent for you in their cloud. The model, the system prompt and the tools are the same on all three, so any difference you see comes from the harness itself.
 
+> If you want to run it yourself, go straight to [1. Set up once](#1-set-up-once)
+
 The agent is meant for business users who want answers from a database without having to write SQL themselves. The trouble is that the questions people ask are often vague, like a question about "high-risk clients" or "urban districts" when nothing in the database says what those terms mean, and an agent that quietly guesses can come back with a confident but wrong number. A good agent should notice what's missing and ask the user before it writes the query, so most of what this benchmark tests is how each harness handles a run that has to pause, wait for a person's answer and then pick up where it left off.
 
 The questions themselves come from [HiL-Bench SQL](https://hub.harborframework.com/datasets/scale-ai/hil-bench-sql-ask-human), a benchmark published by Scale AI. Once you've worked through this README you'll have results for each harness, including how many runs passed, what they cost, how long they took and how many questions the agent asked along the way, as well as a web page where you can read through every run in detail.
